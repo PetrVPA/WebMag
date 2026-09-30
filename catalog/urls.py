@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.home),
+    path("", views.home),#пути в адресной строке
     path("home/", views.home),
     path("contacts/", views.contacts),
 ]
