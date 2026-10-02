@@ -1,0 +1,18 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "title": "Ракеты В-В",
+        "description": "Авиационные ракеты класса воздух-воздух"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "title": "Ракеты В-П",
+        "description": "Авиационные ракеты класса воздух-поверхность"
+    }
+}
+]

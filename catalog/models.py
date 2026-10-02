@@ -47,20 +47,20 @@ class Product(models.Model):
     price = models.DecimalField(
         max_digits=8,
         decimal_places=2,
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
         verbose_name="Price Product",
         help_text="Введите цену продукта",
     )
     created_at = models.DateField(
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
         verbose_name="Date of creation Product",
         help_text="Введите дату создания продукта",
     )
     updated_at = models.DateField(
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
         verbose_name="Date of modification Product",
         help_text="Введите дату изменения продукта",
     )
