@@ -1,0 +1,41 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "title": "Р-73",
+        "description": "Ракета для дальнего воздушного боя",
+        "images": "",
+        "category": 1,
+        "price": "285000.34",
+        "created_at": "1983-07-14",
+        "updated_at": "2026-10-01"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "title": "Х-55",
+        "description": "Крылатая ракета",
+        "images": "",
+        "category": 2,
+        "price": "976350.84",
+        "created_at": "1976-05-24",
+        "updated_at": "2026-10-01"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "title": "Р-60",
+        "description": "Ракета для ближнего воздушного боя",
+        "images": "",
+        "category": 1,
+        "price": "175000.56",
+        "created_at": "1967-03-12",
+        "updated_at": "2026-10-01"
+    }
+}
+]
