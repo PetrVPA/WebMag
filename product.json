@@ -37,5 +37,18 @@
         "created_at": "1967-03-12",
         "updated_at": "2026-10-01"
     }
+},
+ {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "title": "Р-23Р",
+        "description": "Ракета для воздушного боя средней дальности",
+        "images": "",
+        "category": 1,
+        "price": "203000.56",
+        "created_at": "1973-08-23",
+        "updated_at": "2026-10-01"
+    }
 }
 ]
