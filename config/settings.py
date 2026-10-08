@@ -62,6 +62,10 @@ DATABASES = {
         'PASSWORD': os.getenv('PASSWORD'),
         'HOST': os.getenv('HOST'),
         'PORT': os.getenv('PORT'),
+        'OPTIONS': {
+            'options': '-c search_path=public',
+            'client_encoding': 'UTF8',
+        }
     }
 }
 
@@ -93,7 +97,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (BASE_DIR / 'static',)
+STATICFILES_DIRS = (BASE_DIR / 'catalog/static',)
 
 MAILERS = {
     'default': {
