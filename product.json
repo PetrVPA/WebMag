@@ -1,11 +1,11 @@
 [
 {
     "model": "catalog.product",
-    "pk": 2,
+    "pk": 1,
     "fields": {
         "title": "Р-73",
         "description": "Ракета для дальнего воздушного боя",
-        "images": "",
+        "images": "Р-73__65437264512763512.png",
         "category": 1,
         "price": "285000.34",
         "created_at": "1983-07-14",
@@ -14,11 +14,11 @@
 },
 {
     "model": "catalog.product",
-    "pk": 3,
+    "pk": 2,
     "fields": {
         "title": "Х-55",
         "description": "Крылатая ракета",
-        "images": "",
+        "images": "Х-55__23599937.png",
         "category": 2,
         "price": "976350.84",
         "created_at": "1976-05-24",
@@ -27,11 +27,11 @@
 },
 {
     "model": "catalog.product",
-    "pk": 4,
+    "pk": 3,
     "fields": {
         "title": "Р-60",
         "description": "Ракета для ближнего воздушного боя",
-        "images": "",
+        "images": "Р-60__364523764253.png",
         "category": 1,
         "price": "175000.56",
         "created_at": "1967-03-12",
@@ -40,13 +40,39 @@
 },
  {
     "model": "catalog.product",
-    "pk": 5,
+    "pk": 4,
     "fields": {
         "title": "Р-23Р",
         "description": "Ракета для воздушного боя средней дальности",
         "images": "",
         "category": 1,
         "price": "203000.56",
+        "created_at": "1973-08-23",
+        "updated_at": "2026-10-01"
+    }
+},
+    {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "title": "Х-59",
+        "description": "Крылатая ракета",
+        "images": "Х-59__Kh_59M.png",
+        "category": 1,
+        "price": "576800.36",
+        "created_at": "1973-08-23",
+        "updated_at": "2026-10-01"
+    }
+},
+        {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "title": "Р-33",
+        "description": "Ракета для дальнего воздушного боя",
+        "images": "Р-33__R-37M-Missile.jpg",
+        "category": 1,
+        "price": "374894.76",
         "created_at": "1973-08-23",
         "updated_at": "2026-10-01"
     }
