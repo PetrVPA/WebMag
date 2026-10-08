@@ -5,7 +5,9 @@ from catalog.models import Product
 
 
 def home(request):
-    return render(request, 'home.html')#папка template для файлов страниц программы по умолчанию и не указ
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'home.html', context)#папка template для файлов страниц программы по умолчанию и не указ
 
 def contacts(request):
     return render(request, 'contacts.html')
