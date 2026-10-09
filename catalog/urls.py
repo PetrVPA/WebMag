@@ -10,8 +10,8 @@ urlpatterns = [
     path("", views.home),#пути в адресной строке
     path("home/", views.home),
     path("contacts/", views.contacts),
-    path('home/<int:id>/', product_detail, name='product_detail'),
-    path('<int:id>/', product_detail, name='product_detail'),
+    path('home/<int:pk>/', product_detail, name='product_detail'),
+    path('<int:pk>/', product_detail, name='product_detail'),
 
 ]
 # Добавление статических маршрутов для медиафайлов
