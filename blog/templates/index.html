@@ -5,6 +5,9 @@
  {% block content %}
         {% for blog in blog_list %}
 
+                <a href="{% url 'blog:blog_edit_article' blog.id %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'blog:blog_delete_article' blog.id %}" class="btn btn-danger">Удалить</a>
+
                 <div>
                      <h1 class="card-title pricing-card-title">{{blog.title_article}}</h1>
                 </div>
@@ -19,7 +22,7 @@
                 <div>
                     <p>{{ blog.content }}</p>
 
-                    <a href="{% url 'blog:blog_article' blog.pk %}">Читать далее</a>
+                    <a href="{% url 'blog:blog_article' blog.id %}">Читать далее</a>
 
 
                 </div>
