@@ -1,0 +1,26 @@
+﻿{% extends 'base_blog.html' %}
+
+
+                {% block button%}
+
+                {% endblock %}
+
+                {% block content%}
+                <div>
+                     <h1 class="card-title pricing-card-title">{{blog.title_article}}</h1>
+
+                </div>
+
+                <div class="card-header">
+                   {% if blog.preview %}
+                        <img src="{{ blog.preview.url }}" class="img-fluid" style="height: 200px;" alt="{{ blog.preview }}">
+                   {% else %}
+                        <p>Изображение отсутствует</p>
+                   {% endif %}
+                </div>
+                <div>
+
+                    <p>{{ blog.content }}</p>
+
+                </div>
+                {% endblock %}
