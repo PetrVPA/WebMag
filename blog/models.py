@@ -40,7 +40,7 @@ class Blog(models.Model):
     )
 
     def __str__(self):
-        return f"{self.title_article}, {self.preview}, {self.price}"
+        return f"{self.title_article}, {self.preview}"
 
     class Meta:
         verbose_name = "Blog"
