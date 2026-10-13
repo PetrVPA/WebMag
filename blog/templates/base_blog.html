@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Личный блог Оружейного барона</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>
+    img {
+    height: 10px;
+     }
+    </style>
+</head>
+<body>
+<header>
+<nav>
+<ul>
+    <li><a href="{% url 'catalog:product_start'%}">Каталог</a></li>
+    <li><a href="{% url 'blog:blog_start' %}">Главная блога</a></li>
+    <li><a href="{% url 'blog:blog_about' %}">Обо мне</a></li>
+</ul>
+</nav>
+<h1>Личный блог Оружейного барона</h1>
+</header>
+{% block button%}
+<a class="btn btn-lg btn-block btn-primary" href="{% url 'blog:blog_create_article' %}" role="button">Создать статью</a>
+{% endblock %}
+{% block content%}
+<main>
+<section class="posts-list">
+<article>
+<h2><a href="post1.html">Принципы работы ракет класса воздух-воздух</a></h2>
+<p class="post-date">Опубликовано: 15 мая 2026</p>
+<p>Принципы наведения, систем слежения и сопровождения цели</p>
+<a href="post1.html">Читать далее →</a>
+</article>
+
+<article>
+<h2><a href="post2.html">Принцип работы класса воздух-поверхность</a></h2>
+<p class="post-date">Опубликовано: 20 мая 2026</p>
+<p>Принципы наведения.</p>
+<a href="post2.html">Читать далее →</a>
+</article>
+</section>
+</main>
+{% endblock %}
+<footer>
+<p>© 2026 Личный блог Оружейного барона. Все права защищены.</p>
+</footer>
+<script src="/static/js/bootstrap.min.js">  </script>
+</body>
+</html>
