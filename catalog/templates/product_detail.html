@@ -1,0 +1,21 @@
+{% extends 'product_base.html' %}
+
+{% block content %}
+<div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                   <img src="{{object.images.url}}" class="img-fluid" alt="{{ object.title }}">
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{object.title}}</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{ object.description|truncatechars:100  }}</li>
+                        <li>- Стоимость: {{ object.price }}</li>
+                        <li>- Категория: {{ object.category.title }}</li>
+                        <li>- Наименование: {{ object.title }}</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
