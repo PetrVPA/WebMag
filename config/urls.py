@@ -7,6 +7,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('catalog.urls', namespace='catalog')),
     path("blog/", include('blog.urls', namespace='blog')),
-    #path("blog/create/", include('blog.urls')),
-    #path("blog/id/", include('blog.urls')),
+
 ]
