@@ -55,7 +55,7 @@ class ProductForm(ModelForm):
 
         # Настройка атрибутов виджета для поля 'image'
 
-        #self.fields['image'].widget.attrs.update({'class': 'form-control',})
+        self.fields['images'].widget.attrs.update({'class': 'form-control', 'type': 'foto'})
 
         # Настройка атрибутов виджета для поля 'category'
         self.fields['category'].widget.attrs.update({
