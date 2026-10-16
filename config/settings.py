@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from django.urls import reverse
 from django.conf.global_settings import STATICFILES_DIRS
 
 load_dotenv(override=True)
@@ -23,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',# приложение catalog зарегистрировано
-    'blog'
+    'blog',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,8 @@ LOGGING = {
         },
     },
 }
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = 'home/'
+LOGOUT_REDIRECT_URL = 'home/'
