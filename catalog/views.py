@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from catalog.forms import ProductForm
 from catalog.models import Product
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class ProductListView(ListView):
@@ -26,21 +27,21 @@ class ProductDetailView(DetailView):
     template_name = 'product_detail.html'
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     template_name = 'product_create.html'
     success_url = reverse_lazy('catalog:product_start')
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'product_edit.html'
     success_url = reverse_lazy('catalog:product_start')
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = 'product_delete.html'
     success_url = reverse_lazy('catalog:product_start')
