@@ -8,7 +8,8 @@ from django.views.generic import TemplateView
 class RegisterView(CreateView):
     template_name = 'register.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('home')
+    #success_url = reverse_lazy('home')
+    success_url = reverse_lazy('catalog:home')
 
 '''class LoginView(View):
     form_class = RegisterView
