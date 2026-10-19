@@ -131,6 +131,10 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'users.User'
 
+LOGIN_REDIRECT_URL='catalog:home'
+LOGOUT_REDIRECT_URL='catalog:home'
+
+
 
 EMAIL_BACKEND = 'config.custom_email_backend.CustomEmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'

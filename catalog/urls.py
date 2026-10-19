@@ -9,7 +9,7 @@ app_name = 'catalog'
 urlpatterns = [
     path("", ProductListView.as_view(), name='product_start'),#пути в адресной строке
     path("home/", ProductListView.as_view(), name='home'),
-    path("contacts/", ProductContactView.as_view()),
+    path("contacts/", ProductContactView.as_view(), name='contacts'),
     path('home/<int:pk>/', ProductDetailView.as_view() , name='product_detail'),
     path('<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('home/product_create/', ProductCreateView.as_view(), name='product_create'),
