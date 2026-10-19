@@ -13,13 +13,15 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('catalog:home')
 
     def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        self.send_welcome_email(user.email)
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        login(self.request, self.object)
 
-    def send_welcome_email(self, user_email):
-        subject = 'Добро пожаловать в наш сервис'
-        message = 'Спасибо, что зарегистрировались в нашем сервисе!'
-        recipient_list = [user_email]
-        send_mail(subject, message, from_email, recipient_list)
+        send_mail(
+            subject="Добро пожаловать в наш сервис",
+            message="Спасибо, что зарегистрировались в нашем сервисе!",
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[self.object.email],
+            fail_silently=False,
+        )
+
+        return response
