@@ -50,7 +50,10 @@
                         <li>- Обучение персонала</li>
                         <li>- {{ product.title }}</li>
                     </ul>
-                    <a href="{{ product.id }}/" class="btn btn-lg btn-block btn-outline-primary">Подробнее</a>
+                    {% if user.is_authenticated %}
+                        <a href="{{ product.id }}/" class="btn btn-lg btn-block btn-outline-primary">Подробнее</a>
+                    {% else %}
+                    {% endif %}
                 </div>
             </div>
         </div>
