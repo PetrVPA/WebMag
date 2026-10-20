@@ -22,7 +22,7 @@ class ProductContactView(ListView):
     template_name = 'contacts.html'
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = 'product_detail.html'
 

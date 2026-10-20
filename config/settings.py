@@ -136,7 +136,7 @@ LOGOUT_REDIRECT_URL='catalog:home'
 
 
 
-EMAIL_BACKEND = 'config.custom_email_backend.CustomEmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
