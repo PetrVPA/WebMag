@@ -1,0 +1,66 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$k9RbfMrmwsnjlQVBDxHNth$5xxabIqY3H+Ll+VUV+eFfQjdEAg3ufrbxXZk6RQdWMk=",
+        "last_login": "2026-10-20T11:21:24Z",
+        "is_superuser": true,
+        "first_name": "Djon",
+        "last_name": "Alton",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-10-16T14:19:35Z",
+        "email": "meteor@mail.ru",
+        "phone": null,
+        "state": null,
+        "avatar": "",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$vZnukviVWMVDZIdnxPk6gx$EODr/LpJLRdYNEHcqceIpc8nuzufjdB0BgQBnKHWtyo=",
+        "last_login": "2026-10-17T18:30:18.841Z",
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-17T18:28:53.284Z",
+        "email": "meteor1@mail.ru",
+        "phone": null,
+        "state": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 35,
+    "fields": {
+        "password": "54321rewq",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-20T11:17:49Z",
+        "email": "metro@mail.ru",
+        "phone": null,
+        "state": null,
+        "avatar": "",
+        "groups": [
+            5
+        ],
+        "user_permissions": []
+    }
+}
+]

@@ -3,6 +3,7 @@
 import django.contrib.auth.models
 import django.utils.timezone
 from django.db import migrations, models
+from django.contrib.auth.models import Group
 
 
 class Migration(migrations.Migration):
@@ -139,3 +140,4 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+

@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 
 # Create your models here.
@@ -64,6 +65,22 @@ class Product(models.Model):
         verbose_name="Date of modification Product",
         help_text="Введите дату изменения продукта",
     )
+    published_at = models.BooleanField(
+        default=False,
+        null=False,
+        verbose_name="Published Product",
+        help_text="Публикация продукта"
+    )
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name="Owner Product",
+        help_text="Владелец продукта"
+    )
+
+
 
     def __str__(self):
         return f"{self.title}, {self.category}, {self.price}"
@@ -72,3 +89,12 @@ class Product(models.Model):
         verbose_name = "Product"
         verbose_name_plural = "Products"
         ordering = ["title"]
+
+        permissions = [
+            ("can_create_product", "Can create product"),
+            ("can_edit_product", "Can edit product"),
+            ("can_publish_product", "Can publish product"),
+            ("can_unpublish_product", "Can unpublish product"),
+            ("can_delete_product", "Can delete product"),
+            ("can_view_product", "Can view product"),
+        ]

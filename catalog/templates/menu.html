@@ -4,7 +4,7 @@
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">Каталог</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'blog:blog_start' %}">Личный блог</a>
-        {% if user.is_authenticated %}
+        {% if perms.catalog.can_promote_student %}
              <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_create'%}">Создать товар</a>
         {% else %}
         {% endif %}
