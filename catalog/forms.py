@@ -74,6 +74,22 @@ class ProductForm(ModelForm):
         self.fields["images"].widget.attrs["accept"] = "image/jpeg,image/png"
         self.fields["created_at"].widget.attrs["type"] = "date"
 
+    def clean_published_at(self):
+        published_at = self.cleaned_data.get("published_at")
+
+        return published_at
+
+    class Meta:
+        model = Product
+        fields = ['title', 'description', 'images', 'category', 'price', 'created_at', 'updated_at', 'published_at',] # или как называется ваше поле
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Добавляем класс form-check-input для Bootstrap
+        self.fields['published_at'].widget.attrs.update({
+            'class': 'form-check-input'
+        })
+
 
 
 

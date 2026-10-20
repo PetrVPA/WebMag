@@ -1,6 +1,11 @@
 ﻿{% extends 'product_base.html' %}
 
 {% block content %}
+<script>
+document.querySelectorAll('label.form-check-label').forEach(function(el) {
+    el.style.display = "inline";
+});
+</script>
 <div class="container">
   <div class="row">
     <div class="col">
