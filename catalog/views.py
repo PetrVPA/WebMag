@@ -46,11 +46,9 @@ class ProductCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView)
         return super().form_valid(form)
 
     def dispatch(self, request, *args, **kwargs):
-        product = self.get_object()
-        has_edit_perm = request.user.has_perm('catalog.can_create_product')
-        if request.user == product.owner or has_edit_perm:
+        if request.user.has_perm('catalog.can_create_product'):
             return super().dispatch(request, *args, **kwargs)
-        raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
+        raise PermissionDenied("У вас нет прав на создание продукта.")
 
 
 class ProductUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
