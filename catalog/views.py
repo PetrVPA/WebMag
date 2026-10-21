@@ -45,6 +45,13 @@ class ProductCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView)
         product.save()
         return super().form_valid(form)
 
+    def dispatch(self, request, *args, **kwargs):
+        product = self.get_object()
+        has_edit_perm = request.user.has_perm('catalog.can_create_product')
+        if request.user == product.owner or has_edit_perm:
+            return super().dispatch(request, *args, **kwargs)
+        raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
+
 
 class ProductUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     permission_required = 'catalog.can_edit_product'
@@ -55,7 +62,8 @@ class ProductUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView)
 
     def dispatch(self, request, *args, **kwargs):
         product = self.get_object()
-        if request.user == product.owner or request.user.is_staff:
+        has_edit_perm = request.user.has_perm('catalog.can_edit_product')
+        if request.user == product.owner or has_edit_perm:
             return super().dispatch(request, *args, **kwargs)
         raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
 
@@ -68,6 +76,7 @@ class ProductDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView)
 
     def dispatch(self, request, *args, **kwargs):
         product = self.get_object()
-        if request.user == product.owner or request.user.is_staff:
+        has_edit_perm = request.user.has_perm('catalog.can_delete_product')
+        if request.user == product.owner or has_edit_perm:
             return super().dispatch(request, *args, **kwargs)
         raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
