@@ -1,11 +1,14 @@
 from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, redirect, render
 
 from catalog.forms import ProductForm
 from catalog.models import Product
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from .services import get_product_from_cache
+
 
 
 class ProductListView(ListView):
@@ -17,12 +20,16 @@ class ProductListView(ListView):
         context['products'] = Product.objects.all()
         return context
 
+    def get_queryset(self):
+        return get_product_from_cache()
+
 
 class ProductContactView(ListView):
     model = Product
     template_name = 'contacts.html'
 
 
+@method_decorator(cache_page(60*15), name='dispatch')
 class ProductDetailView(PermissionRequiredMixin, LoginRequiredMixin, DetailView):
     permission_required = 'catalog.can_view_product'
     model = Product
@@ -78,3 +85,5 @@ class ProductDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView)
         if request.user == product.owner or has_edit_perm:
             return super().dispatch(request, *args, **kwargs)
         raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
+
+
