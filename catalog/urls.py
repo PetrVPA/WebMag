@@ -1,6 +1,7 @@
 from django.urls import path
 from catalog.views import (ProductListView, ProductContactView, ProductDetailView,
-                           ProductCreateView, ProductUpdateView, ProductDeleteView)
+                           ProductCreateView, ProductUpdateView, ProductDeleteView, ProductCategoryListView,
+                           CategoryListView)
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.decorators.cache import cache_page
@@ -16,6 +17,11 @@ urlpatterns = [
     path('home/product_create/', ProductCreateView.as_view(), name='product_create'),
     path('home/product_edit/<int:pk>/', ProductUpdateView.as_view(), name='product_edit'),
     path('home/product_delete/<int:pk>/', ProductDeleteView.as_view(), name='product_delete'),
+
+    path('list_category/', CategoryListView.as_view(), name='category_list'),
+
+    # Страница категории по ID. Обратите внимание на <int:category_pk>
+    path('category_detail/<int:category_pk>/', ProductCategoryListView.as_view(), name='category_detail'),
 
 
 ]

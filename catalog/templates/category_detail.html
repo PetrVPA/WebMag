@@ -1,0 +1,21 @@
+﻿{% extends 'product_base.html' %}
+
+{% block content %}
+<h1>Категория: {{ category.title }}</h1>
+
+{% if products %}
+    <ul>
+        {% for product in products %}
+            <li>{{ product.title }} - {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>В этой категории пока нет продуктов.</p>
+{% endif %}
+
+<a href="{% url 'catalog:category_list' %}">← Назад к категориям</a>
+
+{% endblock %}
+
+
+

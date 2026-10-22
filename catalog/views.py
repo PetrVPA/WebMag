@@ -1,14 +1,14 @@
 from django.core.exceptions import PermissionDenied
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 
 from catalog.forms import ProductForm
-from catalog.models import Product
+from catalog.models import Product, Category
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
-from .services import get_product_from_cache
-
+from .services import get_product_from_cache, get_products_by_category
 
 
 class ProductListView(ListView):
@@ -85,5 +85,36 @@ class ProductDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView)
         if request.user == product.owner or has_edit_perm:
             return super().dispatch(request, *args, **kwargs)
         raise PermissionDenied("Вы не являетесь владельцем этого продукта или модератором.")
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'list_category.html'
+    context_object_name = 'categories'
+    ordering = ['title']
+
+
+# 2. Список продуктов в конкретной категории (переделываем под pk)
+class ProductCategoryListView(ListView):
+    model = Product
+    template_name = 'category_detail.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        # Получаем pk (ID) категории из URL.
+        # Ключ 'category_pk' должен совпадать с тем, что мы пропишем в urls.py
+        category_pk = self.kwargs.get('category_pk')
+
+        # Фильтруем продукты по pk категории.
+        # Так как category — это ForeignKey, Django автоматически позволяет обращаться к pk связанной модели
+        return Product.objects.filter(category__pk=category_pk).select_related('category')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category_pk = self.kwargs.get('category_pk')
+
+        # Ищем категорию по pk
+        context['category'] = get_object_or_404(Category, pk=category_pk)
+        return context
 
 
