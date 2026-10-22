@@ -23,6 +23,7 @@
 
 <body>
 {% include 'menu.html' %}
+{% load static %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Оружейный барон</h1>
     {% if user.is_authenticated %}
@@ -40,7 +41,11 @@
         <div class="col-3">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                   <img src="{{product.images.url}}" class="img-fluid" alt="{{ product.title }}">
+                    {% if product.images %}
+                   <img src="{{ product.images.url }}" class="img-fluid" alt="{{ product.title }}">
+                    {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" class="img-fluid" alt="Нет фото">
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">{{product.title}}</h1>

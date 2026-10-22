@@ -2,13 +2,18 @@
 
 {% block content %}
 <div class="col-3">
+    {% load static %}
     {% if user == product.owner or user.is_staff %}
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_edit' product.pk %}">Редактировать товар</a>
     <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_delete' product.pk %}">Удалить товар</a>
     {% endif %}
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                   <img src="{{object.images.url}}" class="img-fluid" alt="{{ object.title }}">
+                    {% if object.images %}
+                   <img src="{{ object.images.url }}" class="img-fluid" alt="{{ object.title }}">
+                    {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" class="img-fluid" alt="Нет фото">
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">{{object.title}}</h1>
