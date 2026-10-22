@@ -18,5 +18,6 @@
             <a class="p-2 btn btn-outline-primary" href="{% url 'login:login'%}">Войти</a>
             <a class="p-2 btn btn-outline-primary" href="{% url 'login:register'%}">Регистрация</a>
         {% endif %}
+        <a href="{% url 'catalog:category_list' %}" class="btn-catalog">Перейти к списку категорий</a>
     </nav>
 </div>

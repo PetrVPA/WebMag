@@ -1,0 +1,19 @@
+﻿{% extends 'product_base.html' %}
+
+{% block content %}
+{% if categories %}
+    <ul>
+        {% for category in categories %}
+            <li>
+                <!-- Передаем category.pk в параметр category_pk -->
+                <a href="{% url 'catalog:category_detail' category_pk=category.pk %}">
+                    {{ category.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Категорий пока нет.</p>
+{% endif %}
+
+{% endblock %}
